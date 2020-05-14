@@ -1,0 +1,230 @@
+{% extends 'doctor/d_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+
+{% block css %}
+body{
+    background-image: url('{% static "doctor/853644-gorgerous-green-l.jpg"%}') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#formsection:hover{
+    box-shadow: 0 0 20px  #000000;
+}
+
+h1{
+	letter-spacing: 3px;
+	text-shadow: 3px 2px 3px black;
+	font-weight: bold;
+}
+{% endblock %}
+
+{% block body %}
+<div >
+    <div class="container text-center pt-4 text-white">-->
+        <h1>Registration Form </h1>
+        <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+    </div>
+
+			<div id="formsection" class="container mt-5 test-center rounded p-lg-5 p-xl-5 img-thumbnail" id="Patient_regs" style=" background-color: white; opacity: .8; ">
+					<form method='POST' action=''>
+						{% csrf_token %}
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>USERNAME:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="username" class="input" style="width: 100%;">
+							</div>
+						</div><div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>NAME:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="name" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>MOBILE NO.: </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="tel" name="mobile" class="input" pattern="[0-9]{10}" style="width: 100%;" required>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>EMAIL ID: </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="email" name="email" class="input" placeholder="" style="width: 100%;">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+									<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+										<span> GENDER: </span>
+									</div>
+									<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8" >
+
+											<div class="row">
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="male" > Male
+												</div>
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="female"> Female
+												</div>
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="other"> Transgender
+												</div>
+											</div>
+
+									</div>
+								</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Date of Birth : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="date" name="dob" class="input" style="width: 100%;">
+							</div>
+						</div>
+
+
+						<div class="row mb-3">
+									<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+										<span> SPECIALIST : </span>
+									</div>
+									<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8" >
+
+											<div class="row">
+												<div class="col-sm-6">
+													<select name="specialist" >
+														<option value="Acupressure" > Accupressure </option>
+														<option value="Acupuncture" > Acupuncture </option>
+														<option value="Diet Therapy" > Diet Therapy </option>
+														<option value="Fasting Therapy" > Fasting Therapy </option>
+														<option value="Hydrotherapy" > Hydrotherapy </option>
+														<option value="Mud Therapy" > Mud Therapy </option>
+														<option value="MassoTherapy" > MassoTherapy </option>
+														<option value="Chromo Therapy" > Chromo Therapy </option>
+														<option value="Air Therapy" > Air Therapy </option>
+														<option value="Magnet Therapy" >Magnet Therapy </option>
+													</select>
+												</div>
+
+											</div>
+
+									</div>
+								</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Qualification : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="qualification" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Language Prefered : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="language" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Experience : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="number" name="experience" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Consultation Fees : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="number" name="fees" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Time : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="time" class="input" style="width: 100%;">
+							</div>
+						</div>
+
+					<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+								<span >PIN Code : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+								<input type="number" name="pin" style="width: 100%;">
+							</div>
+							<div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+								<span>Clinic Address </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+								<input type="text" name="address" style="width: 100%;">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>PASSWORD:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="password" name="password" class="input" style="width: 100%;" required>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>CONFIRM PASSWORD:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="password" name="confpassword" class="input" style="width: 100%;" required>
+							</div>
+						</div>
+
+
+
+						<br><br>
+						<div class="text-center">
+							<button class=" btn-primary " style=" width: 50%">Submit</button>
+						</div>
+
+					</form>
+				</div>
+
+		</div>
+	</div>
+</div>
+
+<!--
+<form method="POST" action=''>
+	{% csrf_token %}
+
+	<p>Name : <input type="text" name="name"></p>
+	<p>DOB : <input type="TEXT" name="dob" VALUE="YYYY-MM-DD"></p>
+	<p>Address : <input type="text" name="address"></p>
+	<p>Mobile No. : <input type="text" name="mobile"></p>
+	<p>Email ID : <input type="email" name="email"></p>
+	<p>Gender : <input type="text" name="gender"></p>
+	<p>password : <input type="password" name="password"></p>
+	<p>Conf. Password : <input type="password" name="confpassword"></p>
+
+	<input type="submit">
+</form>
+-->
+{% endblock %}

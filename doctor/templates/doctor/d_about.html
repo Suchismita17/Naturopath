@@ -1,0 +1,131 @@
+{% extends 'doctor/d_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+{% block body %}
+
+    <script>
+		$(document).ready(function(){
+		  $("#Definition").click(function(){
+		    $("#def").toggle();
+		  });
+
+		  $("#features").click(function(){
+		    $("#feat").toggle();
+		  });
+		});
+	</script>
+
+		<!-- Navigationbar -->
+	<div class="container-fluid pl-0 pr-0 ">
+		<nav class="navbar navbar-expand-md mt-1 text-white" style="background-image: linear-gradient(to right,#000000 , #132b08, #19420e);  letter-spacing:2px;">
+			<a class="navbar-brand text-white" href="{% url 'd_Home' %}"><i class="fa fa-home" aria-hidden="true"></i> Home </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span ><i class="fa fa-bars text-white" style="outline:none;" ></i></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item mr-4 ">
+						<a class="nav-link text-white" href="{% url 'd_about' %}">About</a>
+					</li>
+					<li class="nav-item mr-4">
+						<a class="nav-link text-white" href="{% url 'd_Treatment' %}">Treatment</a>
+					</li>
+					<li class="nav-item mr-4" >
+						<a class="nav-link text-white" href="{% url 'd_Signin' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign-in</a>
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+
+	</div>
+
+
+
+    <div class="container mt-xl-4 mt-lg-4 mt-md-4 mt-sm-3 mt-3 ">
+		<div>
+			<h2>About</h2>
+
+		</div>
+		<div class="">
+			<p>
+				<pre style="display: inline;">    </pre>This project is a web application  to provide a platform to connect doctor and patient , where a patient can seek health consultancies from expert naturopathies across the globe, with respect to location and time(24X7).
+			</p>
+		</div>
+	</div>
+	<br>
+    <div class="container mt-3" style="">
+		<h1 class="text-center"> Naturopathy</h1>
+		<hr class="w-75 m-auto">
+
+
+		<h4 id="Definition" class="btn-success p-2">Definition</h4>
+
+		<div id="def" style="display: none;">
+			<p>
+				<pre style="display: inline;">    </pre>"Naturopathy is a system of man building in harmony with the constructive principles of Nature on physical, mental, moral and spiritual planes of living. It has great health promotive, disease preventive and curative as well as restorative potential."
+			</p>
+			<p>
+				<pre style="display: inline;">    </pre>According to the manifesto of British Naturopathic Association, "Naturopathy is a system of treatment which recognizes the existence of the vital curative force within the body." It therefore, advocates aiding human system to remove the cause of disease i.e. toxins by expelling the unwanted and unused matters from human body for curing diseases.
+			</p>
+			<br>
+
+		<p>
+			<pre style="display: inline;">    </pre>Naturopathy is an art and science of healthy living and a drugless system of healing based on well founded philosophy. It has its own concept of health and disease and also principle of treatment. Naturopathy is a very old science. We can find a number of references in our Vedas and other ancient texts. The morbid matter theory, concept of vital force and other concepts upon which Naturopathy is based are already available in old texts. The revival of Naturopathy started in India by translation of Germany’s Louis Kuhne’s book “New Science of Healing”. Shri D. Venkat Chelapati Sharma translated this book in Telgu language in 1894. Shri Shroti Kishan Swaroop of Bijnor translated this book into Hindi and Urdu languages in 1904. All this gave a wide propagation to this system.
+		</p>
+		<p>
+			<pre style="display: inline;">    </pre>Gandhiji was influenced by the book Return to Nature written by Adolf Just and become a firm believer of Naturopathy. He not only wrote several articles in favour of Naturopathy in his newspaper Harijan but did its several experiments on himself too, on his family members and members of his Ashram. It may be noted here that Gandhiji used to stay at the Nature Cure Clinic of Dr. Dinshaw Mehta situated in Pune during 1934 to 1944. In his memory, the Government of India established National Institute of Naturopathy in 1986 at that place. Gandhiji included Naturopathy in his constructive programmes. Due to influence of Gandhiji, several National leaders joined this minority health movement. The names of Ex-Prime Minister Shri Morarji Desai, Ex-Governor of Gujarat Shri Shrimannarayanji, Ex-President Shri V.V.Giri, Acharya Vinoba Bhave and Shri Balkova Bhave need special mention in this regard.
+		</p>
+		<p>
+			Indian Naturopathy movement started mainly in the States of Andhra Pradesh, Uttar Pradesh, Bengal, Maharashtra and Gujarat. The Naturopaths who did foundation work in revival of Naturopathy in different States are Dr. Mahavir Prasad Poddar, Dr. Janaki Sharan Varma, Shri Sharan Prasad, Dr. Khushi Ram Dilkash, Dr. S.J. Singh, Dr. Hiralal, Dr. Vitthal Das Modi, Dr. Kulranjan Mukherjee, Dr. Sukhram Das, Dr.J.M. Jussawala,
+			Dr. M.M. Bhamgara, Dr. Vegi Raju Krishnam Raju, Dr. B. Venkat Rao, Dr. B. Vijaya Laxmi, Dr. Ganga Prasad Gaur Nahar, Shri Dharam Chanda Saravagi, Dr. Sukhbir Singh Rawat, Acharya K. Laxman Sharma etc.
+		</p>
+		<p>
+			<pre style="display: inline;">    </pre>Here, it may also be mentioned that modern Naturopathy movement was started in Germany and other western countries with Water Cure (Hydrotherapy) therapy. Water Cure was synonymous with Nature Cure in those early days. The credit of making Water Cure world famous goes to Vincent Priessnitz (1799-1851), who was a farmer. Later on, other personalities also made their contribution in this work. The name of Louis Kuhne needs special mention, who propounded the Principle of Unity of Disease and Treatment and provided a theoretical base to this method. The book New Science of Healing written by him has been translated into several languages of the world.
+		</p>
+		<p>
+			<pre style="display: inline;">    </pre>The names of Dr. Henry Lindlahr, Dr. J. H. Kellogg, Arnold Ehrit, D. D. Palmer, Rolier, E.D. Babbit, Bernarr Macfadden, Arnold Rickley, J.H. Tilden, Father Kneipp, Benedict Lust, Stainley Lief and Herry Benjamin etc. may also be mentioned among others who had their share of contribution to the development of Naturopathy.
+		</p>
+		<p>
+			<pre style="display: inline;">    </pre>As on today, Naturopathy is Recognised and well accepted as an independent System of Medicine.Presently there are 12 Degree Colleges, Affiliated to Universities and are imparting its five and a half years degree course of Bachelor of Naturopathy & Yogic Sciences (BNYS).
+		</p>
+	</div>
+
+
+	<h4 id="features" class="btn-success p-2">Features</h4>
+		<div id="feat" style="display: none;">
+			<h3>The main features of Naturopathy are as under:</h3>
+			<ul>
+			<li>
+				All diseases, their causes and treatment are one. Except for traumatic and environmental conditions, the cause of all diseases is one i.e. accumulation of morbid matter in the body. The treatment of all diseases is elimination of morbid matter from the body.
+			</li>
+			<li>
+				The primary cause of disease is accumulation of morbid matter. Bacteria and virus enter and survive in the body only after the accumulation of morbid matter when a favorable atmosphere for their growth is established in body. Hence, the basic cause of disease is morbid matter and bacteria secondary causes.
+			</li>
+			<li>
+				Acute diseases are self-healing efforts of the body. Hence, they are our friends, not the enemy. Chronic diseases are outcome of wrong treatment and suppression of the acute diseases.
+			</li>
+			<li>
+				Nature is the greatest healer. The human body itself has the healing power to prevent itself from disease and regain health if unhealthy.
+			</li>
+			<li>
+				In Nature Cure it is not the disease but the entire body of the patient which is caused and is renewed.
+			Naturopathy Cures Patients suffering from chronic ailments are also treated successfully in comparatively less time by Naturopathy.
+			</li>
+			<li>
+				In Nature Cure the suppressed diseases are brought to surface and are removed permanently.
+			Naturopathy treats all the aspects like physical, mental, social and spiritual at the same time.
+			Naturopathy treats the body as a whole.
+			</li>
+			<li>
+				According to Naturopathy, “Food is only the Medicine”, no external medications are used.
+			Performing prayer according to one’s spiritual faith is an important part of treatment (According to Gandhiji “Rama Nama" is the best Natural Treatment)
+			</li>
+          </ul>
+		</div>
+	</div>
+
+{% endblock %}

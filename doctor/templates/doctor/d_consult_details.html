@@ -1,0 +1,40 @@
+{% extends 'doctor/d_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} Consultation Details edit page {% endblock %}
+
+{% block body %}
+
+<div class='container'>
+    
+<h1 class="text-center">hye {{ user.username }} ,  Edit your Condultation Details here.........</h1>
+<hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>Time :</span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="text" name="time" class="input" style="width: 100%;" value="{{ user.consultation.time }}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>Fees : </span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="number" name="fees" class="input"  style="width: 100%;" value="{{ user.consultation.fees }}">
+        </div>
+    </div>
+
+    <input type="submit" value="Update">
+</form>
+</div>
+
+
+{% endblock %}

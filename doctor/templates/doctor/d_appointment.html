@@ -1,0 +1,103 @@
+{% extends 'doctor/d_basic.html' %}
+
+{% block title %} Appointment Section {% endblock %}
+
+{% load static %}
+
+{% block css %}
+
+body{
+    background-image: url('{% static "patient/853644-gorgerous-green-l.jpg"%}') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	background-attachment: fixed;
+}
+
+#applist{
+    box-shadow: 0 0 20px  #000000;
+}
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="w-75 m-auto"  >
+        <div class="container-fluid text-center pt-4 text-white">
+            <h1 style="text-shadow: 2px 2px 5px black;"><b>Appointment Status </b></h1>
+            <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+        </div>
+        
+            
+               {% for obj in objs %}
+               <form method='POST' action='' class="w-100 m-auto" >
+                {% csrf_token %}
+
+
+                
+                    {% if obj.doc_id == user.doctor.pk %}
+
+                    <div class="row p-4 mt-3" id='applist'>
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <span><strong>Appointment id : </strong> {{ obj.appointment_id }} </span>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            
+                            {% for patobj in patobjs %}
+                                {% if patobj.pk == obj.pat_id %}
+                                    <span><strong>Patient Name : </strong>{{ patobj.name }}</span><br>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            {% if obj.reason is not None %}
+                                <span><strong>Reason : </strong>{{ obj.reason }}</span><br>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            {% if obj.appointment_status == False and obj.reject_status == False %}
+                                <a class="btn-success text-white p-2" href="{% url 'd_app_accept' obj.pk %}">Accept</a>
+                                <a class="btn-success text-white p-2" href="{% url 'd_app_reject' obj.pk %}">Reject</a>
+                            {% endif %}
+                            {% if obj.appointment_status == True %}
+                                <span class="btn-primary text-white p-2" >Accept</span>
+                            {% endif %}
+                            {% if obj.reject_status == True %}
+                                <span class="btn-danger text-white p-2" >Reject</span>
+                            {% endif %}
+                        </div>
+
+                </div><hr>
+               
+                    
+                        <!-- <br> -->
+                        
+
+                        
+                        <!-- <span>Payment Status : {{ obj.payment_status }}</span><br> -->
+                        <!-- <span>Appointment Status : {{ obj.appointment_status }}</span><br> -->
+                        <!-- {% if obj.appointment_status == False %}
+                            <div class="col-sm-4">
+                                <input type="radio" name="app_status" value="True" > Accept
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="radio" name="app_status" value="False" > Reject
+                            </div>
+                            <input type="submit">
+                        {% endif %} -->
+                        <!-- <hr> -->
+                    {% endif %}
+                </form>
+               {% endfor %}
+       
+    </div>
+
+    
+
+{% endblock %}

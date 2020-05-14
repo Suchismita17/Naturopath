@@ -1,0 +1,744 @@
+{% extends 'doctor/d_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+{% block css%}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #eee;
+}
+
+/*navbar*/
+.sidebar{
+    height: 100vh;
+    background: liner-gradient(rgba(0,0,0,7), (rgba(0, 0, 0, 9))) ,url(gorgerous-green-l.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 5px,7px,25px,#999;
+}
+.bottom-border{
+    border-bottom: 1px groove #eee;
+}
+.sidebar-link{
+    transition: all 4.s;
+}
+.sidebar-link:hover{
+background-color: #444;
+border-radius: 5px;
+}
+.current{
+    background-color: #f44330;
+    border-radius: 7px;
+    border-shawdow: 2px, 5px, 10px, #111;
+    transition: all .3s;
+
+}
+.current:hover{
+    background-color: #f66446;
+    border-radius:7px;
+    box-shadow: 2px, 5px, 28px,#111;
+    transform: translateY(-1px);
+}
+/*end of nav bar*/
+/*top nav bar*/
+.search-input{
+    background-color: transparent;
+    border:none;
+    border-radius: 0;
+    border-bottom:2px solid #999;
+    transition: all .4s;
+}
+.search-input:focus{
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 2px, solid, #de3545;
+}
+.search-button{
+    border-radius : 50%;
+    padding: 10px,16px;
+    transition: all .4s;
+}
+.search-button:hover{
+    background-color: #eee;
+    transform: translateY(-1px);
+
+}
+.icon-parent{
+    position: relative;
+}
+.icon-bullet::after{
+     content: "";
+     position: absolute;
+     top: 7px;
+     left:15px;
+     height: 12px;
+     width: 12px;
+     background-color: #f44336;
+     border-radius: 50%;
+
+}
+.top-navbar{
+    position:static;
+}
+/*end of top nav bar*/
+/*cards*/
+.card-common{
+    box-shadow: 1px 2px 5px #999;
+    transition: all .4s;
+
+}
+.card-common:hover{
+    box-shadow: 2px 3px 15px #999;
+    transform: translateY(-1px);
+
+}
+/*end of cards*/
+/*progress*/
+.task-border{
+    border-left:3px solid #f66436;
+}
+/*end of progress*/
+
+
+
+
+{% endblock %}
+
+{% block body %}
+ <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+	  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous" integrity=""></script>
+
+
+           <nav class="navbar navbar-expand-md navbar-light bg-dark ">
+        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="myNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <div class="container-fluid">
+              <div class="row">
+                  <!--sidebar-->
+                  <div class=" col-xl-2 col-md-4 col-lg-3 sidebar mt-5 pt-5 fixed-top ">
+                     <a href="#" class="navbar-brand text-white d-block mx-center text-center py-3 mb-4 bottom-border mt-5">NATUROPATH</a>
+                 <div class="bottom-border pb-3">
+                     <img src="853644-gorgerous-green-l.jpg" alt="image icon" width="50" class="rounded-circle mr-3">
+                     <a href=" #" class="text-white">Mrs. Sujata Mishra</a>
+                 </div>
+                     <ul class="navbar-nav flex-column mt-4">
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 current"><i class="fas fa-home text-light fa-lg mr-3"></i>DASHBOARD</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-user text-light fa-lg mr-3"></i>PROFILE</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-envelope text-light fa-lg mr-3"></i>INBOX</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-shopping-cart text-light fa-lg mr-3"></i>PROFIT</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-line text-light fa-lg mr-3"></i>ANALYTICS</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-chart-bar text-light fa-lg mr-3"></i>CHART</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-table text-light fa-lg mr-3"></i>TABLES</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-wrench text-light fa-lg mr-3"></i>SETTINGS</a></li>
+                         <li class="nav-item"><a href="#" class="nav-link text-white p-3 mb-2 sidebar-link"><i class="fas fa-file-alt text-light fa-lg mr-3"></i>DOCUMENTATION</a></li>
+
+                     </ul>
+                            </div>
+                          <!--end of side bar-->
+                          <!--topnav-->
+                          <div class=" col-xl-10 col-md-8 col-lg-9 ml-auto bg-dark fixed-top py-2 top-navbar">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                     <h4 class="text-light text-uppercase mb-0">DASHBOARD</h4>
+                                    </div>
+                                    <div class="col-md-5">
+                                     <form>
+                                         <div class="input-group">
+                                             <input type="text" class="form-control search-input" aria-placeholder="search">
+                                             <button type="button" class="btn btn-white search-button"><i class="fas fa-search text-danger"></i></button>
+
+                                         </div>
+                                     </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <ul class="navbar-nav">
+
+                                                <li class="nav-item icon-parent"><a href="#"class="nav-link icon-bullet"><i class="fas fa-comments text-muted fa-lg"></i></a></li>
+                                                <li class="nav-item icon-parent"><a href="#"class="nav-link icon-bullet"><i class="fas fa-bell text-muted fa-lg"></i></a></li>
+                                                <li class="nav-item ml-md-auto"><a href="#"class="nav-link" data-toggle="modal" data-target="sign-out"><i class="fas fa-sign-out-alt text-danger fa-lg"></i></a></li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                          </div>
+                          <!--end of topnav-->
+
+                      </div>
+                  </div>
+                </div>
+            </nav>
+            <!--end of nav bar-->
+            <!--modal-->
+            <div class="modal fade" id="sign-out">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">want to exit</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            press logout to leave
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button"class="btn btn-success" data-dismiss="modal">Don't Go</button>
+                            <button type="button"class="btn btn-danger" data-dismiss="modal">logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end of modal-->
+            <!--cards-->
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class=" col-xl-10 col-lg-9 col-md-8 ml-auto">
+                            <div class="row pt-5 mt-md-3 mb-5">
+                                <div class="col-xl-3 col-sm-6 p-2">
+                                    <div class="card card-common">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between">
+                                                <i class="fas fa-shopping-cart fa-3x text-warning"></i>
+                                                <div class="text-right text-secondary">
+                                                    <h5>PROFIT</h5>
+                                                    <h3>Rs 95000</h3>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer text-secondary">
+                                            <i class="fas fa-sync mr-3"></i>
+                                            <span>Updated now</span>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-xl-3 col-sm-6 p-2">
+                                        <div class="card">
+                                                <div class="card-body">
+                                                    <div class="d-flex justify-content-between">
+                                                        <i class="fas fa-money-bill-alt fa-3x text-success"></i>
+                                                        <div class="text-right text-secondary">
+                                                            <h5>Expenses</h5>
+                                                            <h3>$39,000</h3>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer text-secondary">
+                                                    <i class="fas fa-sync mr-3"></i>
+                                                    <span>Updated now</span>
+
+                                                </div>
+                                            </div>
+
+                                    </div>
+                                    <div class="col-xl-3 col-sm-6 p-2">
+                                            <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="d-flex justify-content-between">
+                                                            <i class="fas fa-users fa-3x text-info"></i>
+                                                            <div class="text-right text-secondary">
+                                                                <h5>users</h5>
+                                                                <h3>20,000</h3>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer text-secondary">
+                                                        <i class="fas fa-sync mr-3"></i>
+                                                        <span>Updated now</span>
+
+                                                    </div>
+                                                </div>
+
+                                        </div>
+                                        <div class=" col-xl-3 col-sm-6 p-2">
+                                                <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="d-flex justify-content-between">
+                                                                <i class="fas fa-chart-line fa-3x text-danger"></i>
+                                                                <div class="text-right text-secondary">
+                                                                    <h5>visitors</h5>
+                                                                    <h3>27,000</h3>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-footer text-secondary">
+                                                            <i class="fas fa-sync mr-3"></i>
+                                                            <span>Updated now</span>
+
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--end of cards-->
+            <!-------tables-->
+            <section>
+                <div class="container-fluid">
+                    <div class="row mb-5">
+                        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+                            <div class="row align-items-center">
+                                <div class=" col-xl-6 col-12 mb-4 mb-xl-0">
+                                    <h3 class="text-muted text-center mb-3">Doctor's Income</h3>
+                                    <table class="table table-stripend bg-light text-center ">
+                                        <thead>
+                                            <tr class="text-muted">
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Salary</th>
+                                                <th>Date</th>
+                                                <th>Contact</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>Dr. Biswaranjan Parida</td>
+                                                <td>Rs.30,000</td>
+                                                <td>24/10/2019</td>
+                                                <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                                            </tr>
+                                            <tr>
+                                                    <th>2</th>
+                                                    <td>Dr. Shivangi Mishra</td>
+                                                    <td>Rs.95,000</td>
+                                                    <td>24/10/2019</td>
+                                                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                                                </tr>
+                                                <tr>
+                                                        <th>3</th>
+                                                        <td>Dr. Anita Naik</td>
+                                                        <td>Rs.55,000</td>
+                                                        <td>24/10/2019</td>
+                                                        <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                            <th>4</th>
+                                                            <td>Dr. Kailash Singh</td>
+                                                            <td>Rs.55,000</td>
+                                                            <td>24/10/2019</td>
+                                                            <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                                                        </tr>
+                                                        <tr>
+                                                                <th>5</th>
+                                                                <td>Dr. Maitree Pani</td>
+                                                                <td>Rs.65,000</td>
+                                                                <td>24/10/2019</td>
+                                                                <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!---pagination-->
+                                    <nav>
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item">
+                                                <a href="#" class="page-link py-2 px-3">
+                                                <span>&laquo;</span></a>
+                                            </li>
+                                            <li class="page-item active">
+                                                    <a href="#" class="page-link py-2 px-3">1</a>
+
+                                                </li>
+                                                <li class="page-item">
+                                                        <a href="#" class="page-link py-2 px-3">2</a>
+
+                                                    </li>
+                                                    <li class="page-item">
+                                                            <a href="#" class="page-link py-2 px-3">3</a>
+
+                                                        </li>
+                                                        <li class="page-item">
+                                                                <a href="#" class="page-link py-2 px-3">4</a>
+
+                                                            </li>
+                                                        <li class="page-item">
+                                                                <a href="#" class="page-link py-2 px-3"><span>&raquo;</span></a>
+
+                                                            </li>
+                                        </ul>
+                                    </nav>
+                                    <!---end of pagination-->
+                                </div>
+                                -<div class="col-xl-6 col-12">
+
+                                        <h3 class="text-muted text-center mb-3">Recent Payments</h3>
+                                        <table class="table  table-dark table-hover text-center ">
+                                                <thead>
+                                                        <tr class="text-muted">
+                                                            <th>#</th>
+                                                            <th>Name</th>
+                                                            <th>Price</th>
+                                                            <th>Date</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                                    <tr>
+                                                                        <th>1</th>
+                                                                        <td>Mrs. Sujata Mishra</td>
+                                                                        <td>Rs.3000</td>
+                                                                        <td>24/10/2019</td>
+                                                                        <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                            <th>2</th>
+                                                                            <td>Priya Saxena</td>
+                                                                            <td>Rs.2500</td>
+                                                                            <td>24/10/2019</td>
+                                                                            <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <th>3</th>
+                                                                                <td>Mr. Suryakanta Mohanty </td>
+                                                                                <td>Rs.500</td>
+                                                                                <td>24/10/2019</td>
+                                                                                <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <th>4</th>
+                                                                                    <td>Preeti Sabarwal</td>
+                                                                                    <td>Rs.2000</td>
+                                                                                    <td>24/10/2019</td>
+                                                                                    <td><span class="badge badge-success w-75 py-2">Approved</span></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <th>5</th>
+                                                                                        <td>Payal Gargi</td>
+                                                                                        <td>Rs.3000</td>
+                                                                                        <td>24/10/2019</td>
+                                                                                        <td><span class="badge badge-danger w-75 py-2">Pending</span></td>
+                                                                                    </tr>
+
+                                                    </tbody>
+
+                                        </table>
+                                          <!---pagination-->
+                                    <nav>
+                                            <ul class="pagination justify-content-center">
+                                                <li class="page-item">
+                                                    <a href="#" class="page-link py-2 px-3">
+                                                    <span>Previous</span></a>
+                                                </li>
+                                                <li class="page-item active">
+                                                        <a href="#" class="page-link py-2 px-3">1</a>
+
+                                                    </li>
+                                                    <li class="page-item">
+                                                            <a href="#" class="page-link py-2 px-3">2</a>
+
+                                                        </li>
+                                                        <li class="page-item">
+                                                                <a href="#" class="page-link py-2 px-3">3</a>
+
+                                                            </li>
+                                                            <li class="page-item">
+                                                                    <a href="#" class="page-link py-2 px-3">4</a>
+
+                                                                </li>
+                                                            <li class="page-item">
+                                                                    <a href="#" class="page-link py-2 px-3"><span>Next</span></a>
+
+                                                                </li>
+                                            </ul>
+                                        </nav>
+                                        <!---end of pagination-->
+                                </div>
+                            </div >
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!---end of tables-->
+            <!--Progress-->
+
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+                            <div class="row mb-4 align-items-center">
+                                <div class="col-xl-6 col-12 mb-4 mb-xl-0">
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-12">
+                                    <h4 class="text-muted p-3 mb-3">Tasks:</h4>
+                                    <div class="container-fluid bg-white">
+                                        <div class="row py-3 mb-4 task-border align-items-center">
+                                            <div class="col-1">
+                                                <input type="checkbox" checked>
+                                            </div>
+                                            <div class="col-sm-9 col-8">
+                                                Check comments.
+
+                                            </div>
+                                            <div class="col-1">
+                                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                                            </div>
+                                            <div class="col-1">
+                                                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid bg-white">
+                                            <div class="row py-3 mb-4 task-border align-items-center">
+                                                <div class="col-1">
+                                                    <input type="checkbox" checked>
+                                                </div>
+                                                <div class="col-sm-9 col-8">
+                                                    Check your appointment Schedule.
+
+                                                </div>
+                                                <div class="col-1">
+                                                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                                                </div>
+                                                <div class="col-1">
+                                                        <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-fluid bg-white">
+                                                <div class="row py-3 mb-4 task-border align-items-center">
+                                                    <div class="col-1">
+                                                        <input type="checkbox" checked>
+                                                    </div>
+                                                    <div class="col-sm-9 col-8">
+                                                        Check inbox.
+
+                                                    </div>
+                                                    <div class="col-1">
+                                                        <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                                                    </div>
+                                                    <div class="col-1">
+                                                            <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid bg-white">
+                                                    <div class="row py-3 mb-4 task-border align-items-center">
+                                                        <div class="col-1">
+                                                            <input type="checkbox" checked>
+                                                        </div>
+                                                        <div class="col-sm-9 col-8">
+                                                         Check your mail.
+
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                                                        </div>
+                                                        <div class="col-1">
+                                                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="container-fluid bg-white">
+                                                        <div class="row py-3 mb-4 task-border align-items-center">
+                                                            <div class="col-1">
+                                                                <input type="checkbox" checked>
+                                                            </div>
+                                                            <div class="col-sm-9 col-8">
+                                                                YOU have appointment today.
+
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-edit fa-lg text-success mr-2"></i></a>
+                                                            </div>
+                                                            <div class="col-1">
+                                                                    <a href="#" data-toggle="tooltip" title="<h6>edit</h6>" data-html="true" data-placement="top"><i class="fas fa-trash-alt fa-lg text-danger mr-2"></i></a>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--end of progress-->
+            <!--activities-->
+            <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-10 col-lg-9 col-md-5 ml-auto">
+                        <div class="row align-items-center mb-5">
+                            <div class="col-xl-7">
+                                <h4 class="text-muted mb-4">Recent customer activities</h4>
+
+
+                              <div id="accordion" >
+                                  <div class="card">
+                                      <div class="card-header">
+                                          <button class="btn btn-block bg-secondary text-light text-left " data-toggle="collapse" data-target="#collapseOne">
+                                              <img src=" " alt="customer1" width="50" class="mr-3 rounded">
+                                              Preeti Sabarwal posted a new comment.
+                                          </button>
+                                      </div>
+                                      <div class="collapse show" id="collapseOne" data-parent="accordion">
+                                          <div class="card-body">
+                                              Just loved NATUROPATH.
+                                          </div>
+                                      </div>
+                                  </div >
+                                  <div class="card">
+                                        <div class="card-header">
+                                            <button class="btn btn-block bg-secondary text-light text-left " data-toggle="collapse" data-target="#collapseTwo">
+                                                <img src=" " alt="customer2" width="50" class="mr-3 rounded">
+                                                Mr Suryakanta Mohanty posted a new comment.
+                                            </button>
+                                        </div>
+                                        <div class="collapse" id="collapseTwo" data-parent="accordion">
+                                            <div class="card-body">
+                                                Treatment process was awesome and satisfied.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                            <div class="card-header">
+                                                <button class="btn btn-block bg-secondary text-light text-left " data-toggle="collapse" data-target="#collapseThree">
+                                                    <img src=" " alt="customer3" width="50" class="mr-3 rounded">
+                                                    Mrs Sujata Mishra posted a new comment.
+                                                </button>
+                                            </div>
+                                            <div class="collapse" id="collapseThree" data-parent="accordion">
+                                                <div class="card-body">
+                                                     NATUROPATH is doing an awesome job.
+                                                </div>
+                                            </div>
+                                        </div >
+                                        <div class="card">
+                                              <div class="card-header">
+                                                  <button class="btn btn-block bg-secondary text-light text-left " data-toggle="collapse" data-target="#collapseFour">
+                                                      <img src=" " alt="customer4" width="50" class="mr-3 rounded">
+                                                      Payal Gargi posted a new comment.
+                                                  </button>
+                                              </div>
+                                              <div class="collapse" id="collapseFour" data-parent="accordion">
+                                                  <div class="card-body">
+                                                      Commendable treatment procedure,keep it up.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="card">
+                                                <div class="card-header">
+                                                    <button class="btn btn-block bg-secondary text-light text-left " data-toggle="collapse" data-target="#collapseFive">
+                                                        <img src=" " alt="customer5" width="50" class="mr-3 rounded">
+                                                        Preeti Sabarwal posted a new comment.
+                                                    </button>
+                                                </div>
+                                                <div class="collapse" id="collapseFive" data-parent="accordion">
+                                                    <div class="card-body">
+                                                        Good job.
+                                                    </div>
+                                                </div>
+                                            </div >
+
+
+                              </div>
+                            </div>
+                              <div class="col-xl-5 mt-5">
+                                  <div class="card-rounded">
+                                      <div class="card-body">
+                                          <h5 class="text-muted text-center mb-4">Quick status post</h5>
+                                          <ul class="list-inline text-center py-3">
+                                              <li class="list-inline-item mr-4">
+                                                  <a href="#"><i class="fas fa-pencil-alt text-success"></i>
+                                                    <span class="h6 text-muted">Status</span>
+                                                </a>
+                                              </li>
+                                              <li class="list-inline-item mr-4">
+                                                    <a href="#"><i class="fas fa-camera text-info"></i>
+                                                      <span class="h6 text-muted">Photo</span>
+                                                  </a>
+                                                </li>
+                                                <li class="list-inline-item ">
+                                                        <a href="#"><i class="fas fa-map-marker-alt text-primary"></i>
+                                                          <span class="h6 text-muted">Check-in</span>
+                                                      </a>
+                                                    </li>
+                                          </ul>
+                                          <form>
+                                              <div class="form-group">
+                                                  <input type="text" class="form-control py-2 mb-3" placeholder="What's your status....">
+                                                  <button type="button" class="btn btn-block text-uppercase font-weight-bold text-light bg-info py-2 mb-5">Submit</button>
+                                              </div>
+
+                                          </form>
+                                          <div class="row">
+                                              <div class="col-6">
+                                                  <div class="card bg-light">
+                                                      <i class="fas fa-calendar-alt fa-8x text-warning d-block m-auto py-3"></i>
+                                                      <div class="card-body">
+                                                          <p class="card-text text-center font-weight-bold text-uppercase">Mon, Oct 21</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="col-6">
+                                                    <div class="card bg-light">
+                                                            <i class="fas fa-clock fa-8x text-danger d-block m-auto py-3"></i>
+                                                            <div class="card-body">
+                                                                <p class="card-text text-center font-weight-bold text-uppercase">9:45pm</p>
+                                                            </div>
+                                                        </div>
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                  </div>
+
+                          </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </section>
+            <!--end of activities-->
+            <!--footer-->
+            <footer>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-9 col-md-8 ml-auto">
+                            <div class="row border-top pt-3">
+                                <div class="col-lg-6 text-center">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item mr-2">
+                                            <a href="#" class="text-dark">NATUROPATH</a>
+                                        </li>
+                                        <li class="list-inline-item mr-2">
+                                                <a href="#" class="text-dark">ABOUT</a>
+                                            </li>
+                                            <li class="list-inline-item mr-2">
+                                                    <a href="#" class="text-dark">SUPPORT</a>
+                                                </li>
+                                                <li class="list-inline-item mr-2">
+                                                        <a href="#" class="text-dark">BLOG</a>
+                                                    </li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+{% endblock %}
