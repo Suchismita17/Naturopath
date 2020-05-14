@@ -1,0 +1,20 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} Patient List page {% endblock %}
+
+{% block body %}
+
+    {% for arti in object_list %}
+    <div class="article">
+        <h3><a href="{% url 'patient_details' arti.pk %}">{{ arti.name }}</a></h3>
+        <h3>{{ arti.address }}</h3>
+        <h3>{{ arti.dob }}</h3>
+        <h3>{{ arti.mobileno }}</h3>
+        <hr>
+    </div>
+    {% endfor %}
+
+{% endblock %}

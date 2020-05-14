@@ -1,0 +1,103 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+
+
+{% block body %}
+
+
+
+	<div class="container mt-3 " style="background-color: white; opacity: .8;">
+		<div id="filter" class=" row p-2 text-center text-white rounded" style="box-shadow: 10px 5px 10px black; background-image: linear-gradient(to bottom, #132b08, #19420e, #1d5a13, #1f7418, #1e8f1d);">
+			<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+				<span>Doctor Type : </span>
+				<select name="specialist" id='specialist' onchange="specialityChange(this);">
+					<option value="All Type" > <a href="{% url 'p_srchdoctor' AllType %}">All Type</a> </option>
+					<option value="Acupuncture" ><a href="{% url 'p_srchdoctor' Acupuncture %}"> Acupuncture </a></option>
+                    <option value="Accupressure" ><a href="{% url 'p_srchdoctor' Accupressure %}"> Accupressure </a></option>
+                    <option value="Diet Therapy" > Diet Therapy </option>
+					<option value="Fasting Therapy" > Fasting Therapy </option>
+					<option value="Hydrotherapy" > Hydrotherapy </option>
+					<option value="Mud Therapy" > Mud Therapy </option>
+					<option value="MassoTherapy" > MassoTherapy </option>
+					<option value="Chromo Therapy" > Chromo Therapy </option>
+					<option value="Air Therapy" > Air Therapy </option>
+					<option value="Magnet Therapy" >Magnet Therapy </option>
+				</select>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6" >
+				<span>Availability : </span>
+				<select>
+					<option>Online </option>
+					<option>Both Online and Off-line</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="container-fluid " id="doc_area" style="border: 1px blue solid; ">
+
+
+
+            {% for d in doctor %}
+            
+            {% if tod == d.specialist %}
+
+                <div class="row mt-1 mb-1 p-1" style="border: 1px solid black;" id="doclist">
+                    <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3 m-auto text-center rounded-circle">
+                        {% if d.image.url is not None %}
+                        <img class=" rounded-circle" src="{{ d.image.url }}" style="width: 100px; height: 100px;" >
+                        {% endif %}
+                    </div>
+                    <div class="col-8 col-sm-8 col-md-6 col-lg-6 col-xl-6">
+                        <h4>{{ d.name }} </h4>
+                        <ul>
+                            <li><strong>Specialisation : </strong>{{ d.specialist }}<span></span></li>
+                            <li><strong>Experience : </strong><span>{{ d.experience }} years</span></li>
+                            <li><strong>Language Prefered: </strong><span>{{ d.language }} </span></li>
+                            <li><strong>Hospital/Clinic(Address) : </strong><span>{{ d.address }} </span></li>
+                            {% for c in consultation %}
+                            {% if c.pk == d.pk %}
+                                <li><strong>Consultation Time : </strong><span>{{ c.time }} </span></li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 m-auto text-center">
+                            {% for c in consultation %}
+                                {% if c.pk == d.pk %}
+                                    <h4 >Fees</h4><span><strong>Rs. {{ c.fees }}/-</strong> </span>
+                                {% endif %}
+                            
+                        {% endfor %}
+                        <br><br>
+                        <a class="btn-success text-white p-2" href="{% url 'appointment_doc' d.pk %}">Appointment</a>
+                        <a class="btn-success text-white p-2" href="{% url 'p_chatting' d.pk %}">Chatting</a>			
+                    </div>
+                </div>
+                
+                {% endif %}
+
+			{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+		</div>
+
+	</div>
+{% endblock %}

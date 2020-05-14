@@ -1,0 +1,17 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} Patient List page {% endblock %}
+
+{% block body %}
+
+    <div class="detail">
+        <h3><a href="">{{ simple.name }}</a></h3>
+        <h4>{{ simple.mobile_no }}</h4>
+        <h2>{{ simple.address }}</h2>
+        <h3>{{ simple.dob }}</h3>
+    </div>
+
+{% endblock %}

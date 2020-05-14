@@ -1,0 +1,42 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} Payment Status {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <!-- {{response}} -->
+
+    <div class="container text-center pt-4 text-white">
+        <h1 style="text-shadow: 2px 2px 5px black;"><b>Appointment Status </b></h1>
+        <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+    </div>
+    
+    <div class="col my-4 " style="height: 350px;" >
+
+        <h2>Payment status regarding your Appointment ID {{response.ORDERID}}</h2>
+        {% if response.RESPCODE == '01' %}
+        PAYMENT SUCCESS
+        <br>
+        <br>
+        <span>Please go to the <a href="{% url 'p_appointment' %}">Appointment Status</a> Section to Print your Appointment Reciept.......</span>
+
+        {% else %}
+        PAYMENT FAILURE
+        {% endif%}
+
+        
+
+    </div>
+
+    
+
+</div>
+
+
+
+
+{% endblock %}

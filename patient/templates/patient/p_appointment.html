@@ -1,0 +1,102 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Appointment Section {% endblock %}
+
+{% load static %}
+
+{% block css %}
+
+body{
+    background-image: url('{% static "patient/853644-gorgerous-green-l.jpg"%}') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	background-attachment: fixed;
+}
+
+#applist{
+    box-shadow: 0 0 20px  #000000;
+}
+
+
+
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="w-75 m-auto">
+        <div class="container text-center pt-4 text-white">
+            <h1 style="text-shadow: 2px 2px 5px black;"><b>Appointment Status </b></h1>
+            <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+        </div>
+        
+
+        <div class="" >
+                
+               {% for obj in objs %}
+
+            
+                    {% if obj.pat_id == user.patient.pk %}
+
+                    <div id='applist' class=" p-4 mt-3">
+                    <div class="row" >
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                <span><strong>Appointment id : </strong> {{ obj.appointment_id }} </span>
+                            </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            
+                            
+                            {% for docobj in docobjs %}
+                            {% if docobj.pk == obj.doc_id %}
+                            <span><strong>Doctor Name : </strong> {{ docobj.name }} </span>
+                            {% endif %}
+                            {% endfor %}
+                        
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <span><strong>Reason : </strong> {{ obj.reason }} </span>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                            <!-- <span>Payment Status : {{ obj.payment_status }}</span><br> -->
+                        {% if obj.appointment_status == False and obj.reject_status == False %}
+                            <span>Appointment Status : Requested</span><br>
+                            <!-- <button value="Payment">Payment</button> -->
+                        {% endif %}
+                        {% if obj.appointment_status == True and obj.payment_status == False %}
+                            <a class="btn-success p-2" href="{% url 'makepayment' obj.appointment_id %}">Make Payment</a>
+                        {% endif %}
+                        {% if obj.appointment_status == True and obj.payment_status == True %}
+                            <a href="{% url 'p_print_consultation' obj.appointment_id %}">Print Appointment Receipt</a>
+                        {% endif %}
+                        {% if obj.appointment_status == False and obj.reject_status == True %}
+                            <span class="text-danger"><strong>REJECTED</strong></span>
+                        {% endif %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <span><strong>Appointment Time : </strong> {{ obj.time }} </span>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                            <span><strong>Appointment Date : </strong> {{ obj.appdate }} </span>
+                        </div>
+
+                    </div>
+                    </div>
+
+                    
+                    
+                    {% endif %}
+
+               {% endfor %}
+    
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

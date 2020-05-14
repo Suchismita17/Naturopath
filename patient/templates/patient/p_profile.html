@@ -1,0 +1,162 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block css %}
+	 @import "compass/css3";
+
+
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+{% endblock %}
+
+{% load static %}
+
+{% block body %}
+
+<div class = "header text-center">
+        <h1>
+           <small >Patient profile</small>
+        </h1>
+            <hr class="w-50">
+            <h4>Hello {{ user.username }}, </h4>
+        
+     </div>
+
+            <div class="container py-4 my-2">
+                <div class="row">
+
+
+                    <div class="col-md-4 pr-md-5">
+                        <!-- <img class="w-100 rounded border" src="{% static 'patient/girl.jpg' %}" alt="project"> -->
+                        <img class="w-100 rounded border" src="{{ user.patient.image.url }}" width="240">
+                        <div class="pt-4 mt-2">
+                            <section class="mb-4 pb-1">
+                                <h3 class="h6 font-weight-light text-secondary text-uppercase"></h3>
+                                <div class="work-experience pt-2">
+                                    <div class="work mb-4">
+                                        <!-- <strong class="h5 d-block text-secondary font-weight-bold mb-1">Blood group:</strong> -->
+
+
+                                    </div>
+                                    <div class="work mb-4">
+                                        <!-- <strong class="h5 d-block text-secondary font-weight-bold mb-1">Allergies:</strong> -->
+
+
+                                    </div>
+
+                            </section>
+
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="d-flex align-items-center">
+                            <h2 class="font-weight-bold m-0">
+                               {{ user.patient.name }}
+                            </h2>
+
+
+                        </div>
+
+                        <section class="d-flex mt-5">
+                            <!-- <button class="btn btn-light bg-transparent mr-3 mb-3">
+                                <i class="fa fa-comments"></i>
+                                 Messages
+                            </button> -->
+                            <!-- <button class="btn btn-light bg-transparent mr-3 mb-3">
+                                <i class="fa fa-warning"></i>
+                                Health history
+                            </button> -->
+                            <!-- <button class="btn btn-light bg-transparent mr-3 mb-3">
+                                <i class="fa fa-check"></i>
+                                Regular checkup
+                            </button> -->
+                        </section>
+                        <section class="mt-4">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                                        About
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                                        Reviews
+                                    </a>
+                                </li> -->
+
+                            </ul>
+                            <div class="tab-content py-4" id="myTabContent">
+                                <div class="tab-pane py-3 fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <h6 class="text-uppercase font-weight-light text-secondary">
+                                        Contact Information
+                                    </h6>
+                                    <dl class="row mt-4 mb-4 pb-3">
+                                        <dt class="col-sm-3">Phone</dt>
+                                        <dd class="col-sm-9">{{ user.patient.mobile_no }}</dd>
+
+                                        <dt class="col-sm-3">Home address</dt>
+                                        <dd class="col-sm-9">
+                                            <address class="mb-0">
+                                                {{ user.patient.address }}<br/>
+
+                                            </address>
+                                        </dd>
+                                        <!-- <dt class="col-sm-3">Country</dt>
+                                        <dd class="col-sm-9">india
+                                        </dd> -->
+                                        <dt class="col-sm-3">Pincode</dt>
+                                        <dd class="col-sm-9">{{ user.patient.pin }}
+                                        </dd>
+
+                                        <dt class="col-sm-3">Email address</dt>
+                                        <dd class="col-sm-9">
+                                            {{ user.email }}
+                                        </dd>
+                                    </dl>
+
+                                    <h6 class="text-uppercase font-weight-light text-secondary">
+                                        Basic Information
+                                    </h6>
+                                    <dl class="row mt-4 mb-4 pb-3">
+                                        <dt class="col-sm-3">Birthday</dt>
+                                        <dd class="col-sm-9">{{ user.patient.dob }}</dd>
+
+                                        <dt class="col-sm-3">Gender</dt>
+                                        <dd class="col-sm-9">{{ user.patient.gender }}</dd>
+                                    </dl>
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+            <a href="{% url 'p_edit'  %}" class="btn btn-primary mb-3">
+                    <i class="fa fa-check"></i>
+                 Edit profile
+            </a>
+            </div>
+
+        </div>
+        </div>
+
+{% endblock %}

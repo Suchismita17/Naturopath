@@ -1,0 +1,184 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block css %}
+body{
+    background-image: url('{% static "patient/853644-gorgerous-green-l.jpg"%}') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#formsection:hover{
+    box-shadow: 0 0 20px  #000000;
+}
+
+h1{
+	letter-spacing: 3px;
+	text-shadow: 3px 2px 3px black;
+	font-weight: bold;
+}
+{% endblock %}
+
+{% block body %}
+ <div >
+    <div class="container text-center pt-4 text-white">
+        <h1>Registration Form </h1>
+        <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+    </div>
+
+			<div id="formsection" class="container mt-5 test-center rounded p-lg-5 p-xl-5 img-thumbnail" id="Patient_regs" style=" background-color: white; opacity: .8; ">
+					<form method="POST" action=''>
+						{% csrf_token %}
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>USERNAME:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="username" class="input" style="width: 100%;">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>NAME:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="text" name="name" class="input" style="width: 100%;">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>MOBILE NO.: </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="tel" name="mobile" class="input" pattern="[0-9]{10}" style="width: 100%;" required>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>EMAIL ID: </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="email" name="email" class="input" placeholder="" style="width: 100%;">
+							</div>
+						</div>
+
+						<div class="row mb-3">
+									<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+										<span> GENDER: </span>
+									</div>
+									<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8" >
+
+											<div class="row">
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="male" > Male
+												</div>
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="female"> Female
+												</div>
+												<div class="col-sm-4">
+													<input type="radio" name="gender" value="transgender"> Transgender
+												</div>
+											</div>
+
+									</div>
+								</div>
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>Date of Birth : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="date" name="dob" class="input" style="width: 100%;" required>
+							</div>
+						</div>
+
+
+
+					<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+								<span >PIN Code : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+								<input type="number" name="pin" style="width: 100%;" required>
+							</div>
+
+							<div class="col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+								<span >Address : </span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+								<input type="text" name="address" style="width: 100%;" required>
+							</div>
+
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>PROFILE PIC:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="file" name="image" style="width: 100%;" required>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>PASSWORD:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="password" name="password" class="input" style="width: 100%;" required>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+								<span>CONFIRM PASSWORD:</span>
+							</div>
+							<div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+								<input type="password" name="confpassword" class="input" style="width: 100%;" required>
+							</div>
+						</div>
+
+
+						<br><br>
+						<div class="text-center">
+							<button class=" btn-primary " style=" width: 50%">Submit</button>
+						</div>
+
+						<hr>
+						<div class="text-center">
+							{% for m in messages %}
+							<h4>{{ m }}</h4>
+							{% endfor %}
+						</div>
+						<hr>
+
+					</form>
+				</div>
+
+		</div>
+	</div>
+</div>
+
+<!--
+<form method="POST" action=''>
+	{% csrf_token %}
+
+	<p>Name : <input type="text" name="name"></p>
+	<p>DOB : <input type="TEXT" name="dob" VALUE="YYYY-MM-DD"></p>
+	<p>Address : <input type="text" name="address"></p>
+	<p>Mobile No. : <input type="text" name="mobile"></p>
+	<p>Email ID : <input type="email" name="email"></p>
+	<p>Gender : <input type="text" name="gender"></p>
+	<p>password : <input type="password" name="password"></p>
+	<p>Conf. Password : <input type="password" name="confpassword"></p>
+
+	<input type="submit">
+</form>
+-->
+
+{% endblock %}

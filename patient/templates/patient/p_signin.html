@@ -1,0 +1,176 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+{% block css %}
+body{
+    background-image: url('{% static "patient/853644-gorgerous-green-l.jpg"%}') ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.form-group{
+      margin-bottom:25px;
+}
+.form-group input{
+       height:42px;
+       border-radius: 5px;
+       font-size:20px;
+       padding-left:40px;
+}
+
+.icons{
+      position:absolute;
+       font-size:24px;
+       color:#555e60;
+       left:22px;
+       padding-top:10px;
+       padding-left:6px;
+}
+
+.svg-inline--fa{
+      font-size:20px;
+      margin-right:7px;;
+
+}
+.forgot{
+       padding:0px 0 25px;
+}
+.forgot a{
+       color:#39e600;
+}
+.forgot a:hover{
+        color:#0080ff;
+}
+#fb{
+  font-size: 20px;
+  width: 30px;
+   border-radius: 90%;
+  text-decoration: none;
+
+}
+#fb{
+    opacity: 15;
+}
+.fa-facebook-square {
+  background: #3B5998;
+  color: white;
+}
+#tweet{
+  font-size: 20px;
+  width: 30px;
+   border-radius: 90%;
+  text-decoration: none;
+
+}
+#tweet{
+    opacity: 15;
+}
+.fa-twitter {
+  background:  #55ACEE;
+  color: white;
+}
+
+#google{
+  font-size: 20px;
+  width: 30px;
+   border-radius: 90%;
+  text-decoration: none;
+
+}
+#google{
+    opacity: 15;
+}
+
+.fa-google-plus-square{
+      background: #dd4b39;
+      color: white;
+}
+#ln{
+  font-size: 20px;
+  width: 30px;
+   border-radius: 90%;
+  text-decoration: none;
+
+}
+#ln{
+    opacity: 15;
+}
+
+.fa-linkedin{
+       background: #007bb5;
+        color: white;
+}
+
+#formsection:hover{
+    box-shadow: 0 0 20px  #000000;
+}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+	<div class="w-75 m-auto p-2 m-2 rounded" id="formsection" style="background-color: white; opacity: .7; ">
+
+		<div class=" row">
+			<div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center rounded-circle mb-4 mt-3 pb-4">
+				 <img class="rounded-circle" src="{% static 'patient/profile1.png' %}" style="height:80px;" alt="icon">
+			</div>
+			<div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center ">
+
+				<form action="" method="POST" class="col-12 w-75 m-auto">
+            {% csrf_token %}
+            
+                <div class="form-group">
+                    <div class="icons">
+                    <i class="fa fa-user-circle-o" ></i>
+                    </div>
+                    <input type="text" name="username" placeholder="Username" class="form-control" aria-describedby="basic-addon">
+                </div>
+                <div class="form-group">
+                    <div class="icons">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <input type="password" name="password"  id="defaultForm-pass" placeholder="Password" class="form-control validate"
+                           aria-describedby="basic-addon" minlength="8" required>
+                </div>
+                <!-- <div class="forgot">
+                 <img src="{% static 'patient/thinking-face_1f914.png' %}" width=30; height=30; alt="icon">
+                 <a href ="PRecovery.html" style="color: red;"> Forgot Your Password ?</a>
+                </div> -->
+
+                  <!-- <button TYPE="submit" class="btn"><i class="fas fa-sign-in-alt"></i><B>SIGN-IN</B></button> -->
+                  <!-- <a href="Registration.html" class="btn btn-success mb-5 w-100" style=""><i class="fas fa-sign-in-alt"></i>SIGN-IN</a> -->
+                  <input type="submit" class="btn btn-success mb-5 w-100">
+
+                  <div>
+                    {% for m in messages %}
+                    <h4>{{ m }}</h4>
+                    {% endfor %}
+                  </div>
+
+
+
+                <div class="register">
+                   <img src="https://tenor.com/view/heartbeat-heart-gif-8019370.gif" max-width=200; height=70; alt="icon">
+                    <div class="Sign-up mt-3">
+                        <h6 class="text-dark">Create an account....</h6>
+                        <a href="{% url 'p_Signup' %}"  class="btn btn-primary w-100 mt-2" ><i class="fas fa-sign-in-alt"></i> Sign-up</a>
+                    </div>
+                </div>
+            </form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+
+{% endblock %}

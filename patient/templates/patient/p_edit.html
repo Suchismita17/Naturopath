@@ -1,0 +1,65 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} profile edit page {% endblock %}
+
+{% block body %}
+
+<div class='container'>
+    
+<h1 class="text-center">hye {{ user.username }} ,  Edit your Profile here.........</h1>
+<hr>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>NAME:</span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="text" name="name" class="input" style="width: 100%;" value="{{ user.patient.name }}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>MOBILE NO.: </span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="tel" name="mobile" class="input" pattern="[0-9]{10}" style="width: 100%;" value="{{ user.patient.mobile_no }}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>Address : </span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="text" name="address" class="input"  style="width: 100%;" value="{{ user.patient.address }}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>Pin : </span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="number" name="pin" class="input" pattern="[0-9]{10}" style="width: 100%;" value="{{ user.patient.pin }}">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+            <span>PROFILE PIC:</span>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+            <input type="file" name="image" style="width: 100%;" >
+        </div>
+    </div>
+
+    <input type="submit" value="Update">
+</form>
+</div>
+
+
+{% endblock %}

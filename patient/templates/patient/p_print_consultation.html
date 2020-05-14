@@ -1,0 +1,162 @@
+{% load static %}
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--	  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.js"></script>-->
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <title>{% block title %}  {% endblock %}</title>
+    </head>
+
+
+<body style="font-family: Arial, Helvetica, sans-serif;">
+
+    <!-- Top Logo and Heading -->
+			<!-- Top Logo and Heading -->
+	<div class="container-fluid text-white"
+		style="background-image: linear-gradient(to right,#000000 , #132b08, #19420e, #1d5a13);">
+		<div class="row">
+			<div class="col-xl-2 col-lg-2 col-md-3 col-sm-12 col-12 text-sm-center text-center" >
+				<a href="{% url 'p_Home' %}"><img src="{% static 'patient/logo.png' %}" class="" style="height: 150px;  box-shadow: 10px 5px 10px black;"></a>
+			</div>
+			<div
+				class="col-xl-5 col-lg-5 col-md-4 col-sm-12 col-12">
+				<h3 class="text-white text-sm-center text-center text-md-left mt-lg-5 mt-md-5 mt-xl-5 pt-lg-4 pt-xl-4 pt-md-4" style="text-align: left; letter-spacing: 3px; font-size: 50px;">Naturopath</h3>
+			</div>
+
+			<div
+				class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-12 align-bottom mt-md-4">
+				<h4 class="text-white text-xl-right text-lg-center text-md-right text-md-right text-sm-center text-center mt-2 mt-lg-5 mt-md-5 mt-xl-5 pt-lg-4 pt-xl-4 pt-md-4 " style="font-size: 2vw" >Rejuvenate Mind and Body</h4>
+			</div>
+
+		</div>
+
+	</div>
+
+<hr>
+    <div >
+        <div class="container text-center pt-4">
+            <h1 ><b>Appointment Receipt </b></h1>
+            <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+        </div>
+
+        <div class="w-75 m-auto text-center">
+            <span><strong>Appointment ID : </strong> {{ appobj.pk }}</span>
+
+        </div>
+        
+        <a title='print screen' alt='Print Screen' onclick="window.print()" target='_blank' style="curson:pointer; float:right;" class="btn-success p-2 text-white">Print Here</a>
+        <hr>
+    
+                <div id="formsection" class="container mt-3  rounded p-lg-5 p-xl-5 img-thumbnail" id="Patient_regs" style=" background-color: white; opacity: .8; ">
+                     
+
+                            <div class="container pt-4 ">
+                                <h3>Doctor Details </h3>
+                                <hr class="w-100 ml-0" style="box-shadow: 5px 5px 5px #000000;">
+                            </div>
+
+                            <div class="ml-5">
+                            <div class="">
+                                <span><strong>Doctor Name : </strong> </span>
+                                <span> {{ docobj.name }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Specialisation : </strong></span>
+                                <span> {{ docobj.specialist }}</span>
+                            </div>
+
+
+                            <div class="">
+                                <span><strong>Hospital/Clinic(Address) : : </strong></span>
+                                <span>{{ docobj.address }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Appointment Fees : </strong></span>
+                                <span>Rs.{{ dconobj.fees }}/- </span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Date : </strong></span>
+                                <span>{{ appobj.appdate }} </span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Time : </strong></span>
+                                <span>{{ dconobj.time }} </span>
+                            </div>
+
+
+                            </div>
+
+                            <div class="container pt-4 ">
+                                <h3>Personal Details </h3>
+                                <hr class="w-100 ml-0" style="box-shadow: 5px 5px 5px #000000;">
+                            </div>
+
+                            <div class='ml-5'>
+                            <div class="">
+                                <span><strong>Name : </strong></span>
+                                <span> {{ user.patient.name }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Email : </strong></span>
+                                <span>{{ user.email }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Mobile No. : </strong></span>
+                                <span>{{ user.patient.mobile_no }}</span>
+                            </div>
+
+                            <hr>
+                            <hr>
+
+                            <table style="width:100%;  border-bottom: 1px solid rgb(109, 108, 108);" >
+                                <tr style="border-bottom: 1px solid rgb(109, 108, 108); border-top: 1px solid rgb(109, 108, 108);">
+                                  <th>Sl.No.</th>
+                                  <th>Investigation</th>
+                                  <th>Treatment</th>
+                                </tr>
+                                <tr style="height: 500px; ">
+                                    <td style="border-left: 1px solid rgb(109, 108, 108);"></td>
+                                    <td style="border-left: 1px solid rgb(109, 108, 108);"></td>
+                                    <td style="border-left: 1px solid rgb(109, 108, 108);  border-right: 1px solid rgb(109, 108, 108);"></td>
+                                </tr>
+                            </table>
+
+                            <hr>
+                                <br><br>
+                            <div class="" style="float: right;">
+                                <span><strong>Doctor's Signature : </strong></span>
+                            </div>
+
+                            </div>
+                            
+                            
+                    </div>
+    
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

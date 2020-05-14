@@ -1,0 +1,141 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% load static %}
+
+{% block body %}
+
+    <div >
+        <div class="container text-center pt-4 text-white">
+            <h1 style="text-shadow: 2px 2px 5px black;"><b>Appointment Form </b></h1>
+            <hr class="w-50 " style="box-shadow: 5px 5px 5px #000000;">
+        </div>
+    
+                <div id="formsection" class="container mt-5  rounded p-lg-5 p-xl-5 img-thumbnail" id="Patient_regs" style=" background-color: white; opacity: .8; ">
+                        <form method="POST" action='' class="w-75 m-auto">
+                            {% csrf_token %}
+
+                            <div class="container pt-4 ">
+                                <h3>Doctor Details </h3>
+                                <hr class="w-100 ml-0" style="box-shadow: 5px 5px 5px #000000;">
+                            </div>
+
+                            <div class="ml-5">
+                            <div class="">
+                                <span><strong>Doctor Name : </strong> </span>
+                                <span> {{ docobj.name }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Specialisation : </strong></span>
+                                <span> {{ docobj.specialist }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Experience : </strong></span>
+                                <span> {{ docobj.experience }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Language Prefered: : </strong></span>
+                                <span>{{ docobj.language }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Hospital/Clinic(Address) : : </strong></span>
+                                <span>{{ docobj.address }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Appointment Fees : </strong></span>
+                                <span>Rs.{{ dconobj.fees }}/- </span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Time : </strong></span>
+                                <!-- <input type="text" name='time' value='{{ dconobj.time }}'> -->
+                                <span>{{ dconobj.time }}</span>
+                            </div>
+
+                            <div class="mt-2">
+                                <span><strong>Choose a Date : </strong></span>
+                                {% for d in date %}
+
+                                    {% if d == tday %}
+                                        <label class="radio-inline ml-3">
+                                            <input type="radio" name="appdate" value="{{ d }}" checked>{{ d }}
+                                        </label>
+                                    {% else %}
+                                    <label class="radio-inline ml-3">
+                                        <input type="radio" name="appdate" value="{{ d }}">{{ d }}
+                                    </label>
+                                    {% endif %}
+                                    
+                                {% endfor %}
+
+                            </div>
+
+                            <div>
+
+                            </div>
+
+                            </div>
+
+                            <div class="container pt-4 ">
+                                <h3>My Personal Details </h3>
+                                <hr class="w-100 ml-0" style="box-shadow: 5px 5px 5px #000000;">
+                            </div>
+
+                            <div class='ml-5'>
+                            <div class="">
+                                <span><strong>Name : </strong></span>
+                                <span>{{ user.id }} : {{ user.patient.name }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Email : </strong></span>
+                                <span>{{ user.email }}</span>
+                            </div>
+
+                            <div class="">
+                                <span><strong>Mobile No. : </strong></span>
+                                <span>{{ user.patient.mobile_no }}</span>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-12 col-sm-12 col-md-3 col-lg-4 col-xl-4">
+                                    <span><strong>Reason :</strong></span>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-9 col-lg-8 col-xl-8">
+                                    <textarea rows="6" name="reason" class="input" style="width: 60%;" required> </textarea>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                        
+    
+    
+                            <br><br>
+                            <div class="text-center">
+                                <button class=" btn-success w-50 " >Request Appointment</button>
+                            </div>
+    
+                            <hr>
+                            <div class="text-center">
+                                {% for m in messages %}
+                                <h4>{{ m }}</h4>
+                                {% endfor %}
+                            </div>
+                            <hr>
+    
+                        </form>
+                    </div>
+    
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}

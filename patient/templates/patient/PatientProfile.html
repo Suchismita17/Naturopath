@@ -1,0 +1,26 @@
+{% extends 'patient/p_basic.html' %}
+
+{% load static %}
+
+
+{% block title %} Patient List page {% endblock %}
+
+{% block body %}
+    <h1>Hye   {{ user.username }}  , Edit here</h1>
+    <hr>
+
+    <div >
+        <form action="" method="POST">
+            {% csrf_token %}
+        
+            {{ form.as_p}}
+        
+            <input type="submit" value="Update">
+        </form>
+                
+
+    </div>
+
+
+
+{% endblock %}

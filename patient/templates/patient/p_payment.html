@@ -1,0 +1,44 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} Payment {% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <div class="container" >
+		<div class="text-center P-4" >
+			<h1>PAYMENT</h1>
+            <hr class="w-50" style="box-shadow: 1px 1px 1px black;">
+		</div>
+		<div class="row text-center mt-5">
+			<div class="text-center m-auto" >
+					<div style="border: 1px solid black; box-shadow: 0px 0px 5px black; width: 400px; height: 250px;">
+						 <form class="checkout">
+						    <div class="checkout-header">
+						      <h3 >
+						        Checkout
+						        <hr style="box-shadow: 1px 1px 1px black;">
+						      </h3>
+						    </div>
+						    <div class="m-3">
+						    	<input type="text" name="name" class="form-control  d-inline" style="width: 180px; " placeholder="Your name" autofocus>
+						    	<input type="number" name="Exp_month" class="form-control  d-inline" style="width: 80px;" placeholder="MM">
+						    	<input type="number" name="Exp_year" class="form-control  d-inline" style="width: 80px; " placeholder="YY">
+						    </div>
+						    <div class="m-3">
+						      <input type="text" name="name" class="form-control  d-inline"  style="width: 240px; " placeholder="4111 1111 1111 1111">
+						      <input type="number" name="name" class="form-control  d-inline"  style="width: 80px; " placeholder="CVC">
+						    </div>
+						    <div class="p-2">
+						      <input type="submit" value="Purchase" class="btn w-100 rounded " style="box-shadow: 3px 3px 3px black; font-weight: bold;  color: white;  text-align: center;  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2);  border: 1px solid;  border-color: #1486f9 #0f7de9 #0d6acf;  background: #1993fb;   border-radius: 4px; ">
+						    </div>
+						  </form>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+
+{% endblock %}

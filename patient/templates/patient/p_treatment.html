@@ -1,0 +1,188 @@
+{% extends 'patient/p_basic.html' %}
+
+{% block title %} treatment {% endblock %}
+
+{% load static %}
+
+{% block body %}
+    <script>
+		$(document).ready(function(){
+		  $("#diet").click(function(){
+		    $("#dt").toggle();
+		  });
+
+		  $("#fasting").click(function(){
+		    $("#ft").toggle();
+		  });
+		});
+	</script>
+
+<!-- Navigationbar -->
+	<div class="container-fluid pl-0 pr-0 ">
+		<nav class="navbar navbar-expand-md mt-1 text-white" style="background-image: linear-gradient(to right,#000000 , #132b08, #19420e);  letter-spacing:2px;">
+			<a class="navbar-brand text-white" href="{% url 'p_Home' %}"><i class="fa fa-home" aria-hidden="true"></i> Home </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span ><i class="fa fa-bars text-white" style="outline:none;" ></i></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item mr-4 ">
+						<a class="nav-link text-white" href="{% url 'p_about' %}">About</a>
+					</li>
+					<li class="nav-item mr-4">
+						<a class="nav-link text-white" href="{% url 'p_Treatment' %}">Treatment</a>
+					</li>
+					<li class="nav-item mr-4" >
+						<a class="nav-link text-white" href="{% url 'p_Signin' %}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign-in</a>
+					</li>
+
+				</ul>
+			</div>
+		</nav>
+
+	</div>
+
+
+
+
+    <div class="container">
+		<h1 class="text-center"> Treatment Type </h1>
+		<hr>
+		<ul>
+			<li id="diet" class="btn-success mb-1 p-1 rounded">
+				Diet Therapy
+			</li>
+			<div id="dt" style="display: none;">
+				<h3>
+					Diet Therapy
+				</h3>
+				<p>
+					According to this therapy, the food must be taken in natural form. Fresh seasonal fruits, fresh green leafy vegetables and sprouts are excellent. These diets are broadly classified into three types which are as follows:
+
+					<p>Eliminative Diet: Liquids-Lemon, Citric juices, Tender Coconut water, Vegetable soups, Butter milk, Wheat Grass juices etc.
+						Soothing Diet: Fruits, Salads, Boiled/Steamed Vegetables, Sprouts, Vegetable chutney etc.
+						Constructive Diet: Wholesome flour, Unpolished rice, little pulses, Sprouts, Curd etc.
+						Being alkaline, these diets help in improving health, purifying the body and rendering it immune to disease. To this end, a proper combination of food is necessary. Our diet should consist of 20% acidic and 80% alkaline food for maintaining health. A balanced food is a must for any individual seeking good health. Food is regarded as Medicine in Naturopathy.
+						<br>
+						Ayurveda
+						</p>
+				</p>
+			</div>
+			<li id="fasting" class="btn-success mb-1 p-1 rounded">
+				Fasting Therapy
+			</li>
+			<div  id="ft" style="display: none;">
+				<h3>
+					Fasting Therapy
+				</h3>
+				<p>
+
+			Fasting is primarily the act of willingly abstaining from some or all food, drink, or both, for a period of time. The word id derived from the old English , ‘ Feastan’ means to fast, observe, be strict. In Sanskrit ‘ Vrath’ means ‘determination’ and ‘Upavasa’ means ‘ near to God’.A fast may be total or partial concerning that from which one fasts, and may be prolonged or intermittent as to the period of fasting. Fasting is an important treatment modality for health preservation. In fasting, mental preparedness is an essential pre-condition. Prolonged fasting should be done only under the supervision of a competent Naturopath.
+			<br>
+			The duration of the fast depends upon the age of the patient, the nature of the disease and amount and type of drugs previously used. It is some times advisable to undertake a series of short fasts of two or three days and gradually increase the duration of each succeeding fast by a day or so. No harm will accrue to fasting patient provided they take rest and are under proper professional care.
+			<br>
+			Methods of fasting are water, juices or raw vegetable juices. The best, safest and most effective method is lime juice fasting. During fasting, the body burns up and excretes huge amounts of accumulated wastes. We can help this cleansing process by drinking alkaline juices. Sugars in juices will strengthen the heart, juice fasting is therefore the best form of fasting. All juices should be prepared from fresh fruit immediately before drinking. Canned or frozen juices should not be used. A precautionary measure, which must be observed in all cases of fasting, is the complete emptying of the bowels at the beginning of the fast by enema so that the patient is not bothered by gas or decomposing matter formed from the excrements remaining in the body. Enemas should be used at least every alternate day during the fasting period. The total liquid intake should be approximately six to eight glasses. A lot of energy is spent during the fast in the process of eliminating accumulated poisons and toxic waste materials. It is therefore, of utmost importance that the patient gets as much physical rest and mental relaxation as possible during the fast.
+			<br>
+			The success of the fast depends largely on how it is broken. The main rules for break in the fast are: do not overeat, eat slowly and chew your food thoroughly and take several days for the gradual change to the normal diet.
+			<br>
+			Benefits and Physiological effects of Fasting
+			Physicians of most cultures, throughout history, have recommended extended fasting as therapy for various conditions from ancient to modern. Though earlier observations were studied without scientific methodology or understanding they still point to utilization of fasting as a therapeutic modality. Earlier observations were based on animal behaviour but today they are based on animal physiology. We will try to discern in this article as to how best fasting could be useful in promoting ones health through review of literature that describes physiological and metabolic benefits.
+			<br>
+			Prominent among the physiological effects conferred by fasting (Calorie Restriction and Intermittent Fasting) are the following: increased insulin sensitivity that results in reduced plasma glucose and insulin concentrations and improved glucose tolerance, reduced levels of oxidative stress as indicated by decreased oxidative damage to proteins, lipids and DNA, increased resistance to various types of stress including heat, oxidative and metabolic stresses and enhanced immune function.
+			<br>
+			Both gross and cellular physiology is profoundly affected by caloric restriction (CR) or intermittent fasting (IF) regimes. With respect to gross physiology there is of course a significant reduction of body fat and mass, which supports a healthy cardiovascular system and reduces incidents of myocardial infarction. In addition to cardioprotection a greater tolerance to stress is induced in the liver, the nutrient core of homo sapiens. The presence of alternative energy stores such as ketone bodies (e.g. β-hydroxybutyrate) enable homo sapiens to survive additional stresses of life. Excessive and deleterious blood glucose is curtailed by an enhanced sensitivity to insulin (Ins) and glucose and its utilization as an energy source.
+				</p>
+			</div>
+			<li id="mid" class="btn-success mb-1 p-1">
+				Mud Therapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="hydrotherapy" class="btn-success mb-1 p-1 rounded">
+				Hydrotherapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="MassoTherapy" class="btn-success mb-1 p-1 rounded">
+				MassoTherapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="Acupressure" class="btn-success mb-1 p-1 rounded">
+				Acupressure
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="Acupuncture" class="btn-success mb-1 p-1 rounded">
+				Acupuncture
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="Chromo" class="btn-success mb-1 p-1 rounded">
+				Chromo Therapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="Air" class="btn-success mb-1 p-1 rounded">
+				Air Therapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+			<li id="Magnet" class="btn-success mb-1 p-1 rounded">
+				Magnet Therapy
+			</li>
+			<div style="display: none;">
+				<h3>
+
+				</h3>
+				<p>
+
+				</p>
+			</div>
+		</ul>
+	</div>
+
+
+{% endblock %}
