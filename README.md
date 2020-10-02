@@ -6,7 +6,9 @@ Healthcare Web Application
 
 
 ## Frontend :
-    HTML, CSS, BOOTSTRAP 4.
+    HTML, CSS, BOOTSTRAP 4,JAVASCRIPT
 ## Backend :
-    DJANGO
+    DJANGO 2.2
+## Database :
+    Sqlite
 
